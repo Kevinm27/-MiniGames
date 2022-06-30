@@ -1,5 +1,6 @@
 # MiniGames
-Test
+
+## Short Description of Repository
 
 ## List of contributors
 - Kevin Maldonado-Cota
