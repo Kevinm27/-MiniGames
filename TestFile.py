@@ -11,11 +11,9 @@ def main():
 def inputDimension(measurement):
 
 	returnMeasurement = input("What would you like the " + measurement + " of the board to be? ")
-	try:
-		returnMeasurement = int(returnMeasurement)
-		return returnMeasurement
-	except:
-		print("Please enter a number!")
-		inputDimension(measurement)
+
+	while(returnMeasurement.isnumeric() == False):
+		returnMeasurement = input("ERROR, ENTER A VALID POSITIVE INT!\nWhat would you like the " + measurement + " of the board to be? ")
+	return returnMeasurement
 	
 main()
