@@ -8,12 +8,19 @@ def main():
 	width = inputDimension("width")
 	print("Creating a", str(height), " x ", str(width), "board! ")
 
+	array0 = main_array(width, height)
+
+
 def inputDimension(measurement):
 
-	returnMeasurement = input("What would you like the " + measurement + " of the board to be? ")
+	returnMeasurement = input(f" What would you like the {measurement} of the board to be? ")
 
 	while(returnMeasurement.isnumeric() == False):
-		returnMeasurement = input("ERROR, ENTER A VALID POSITIVE INT!\nWhat would you like the " + measurement + " of the board to be? ")
+		returnMeasurement = input(f" ERROR, ENTER A VALID POSITIVE INT!\nWhat would you like the {measurement} of the board to be? ")
 	return returnMeasurement
+
+def main_array(w, h):
+	arr = [[0] * w] * h
+	return arr
 	
 main()
