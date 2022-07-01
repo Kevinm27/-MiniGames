@@ -3,21 +3,14 @@
 
 
 def main():
-	name = input("Welcome to Mine Sweeper! What is your name? ")
+	name = input("Welcome to Mine Sweeper!\nWhat is your name? ")
 	height = inputDimension("height")
 	width = inputDimension("width")
-
-<<<<<<< Updated upstream
-
-
-
-=======
-	print("Creating a", str(height), " x ", str(width), "board!")
+	print("Creating a", str(height), " x ", str(width), "board! ")
 
 def inputDimension(measurement):
-	print("What would you like the", measurement, "of the board to be?")
-	returnMeasurement = input()
 
+	returnMeasurement = input("What would you like the " + measurement + " of the board to be? ")
 	try:
 		returnMeasurement = int(returnMeasurement)
 		return returnMeasurement
@@ -25,5 +18,4 @@ def inputDimension(measurement):
 		print("Please enter a number!")
 		inputDimension(measurement)
 	
->>>>>>> Stashed changes
 main()
