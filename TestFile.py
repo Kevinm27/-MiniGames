@@ -1,7 +1,11 @@
 #Test File
 
 import random
-def JefIsGay():
+def numbers(array, height):
+	for height in array:
+		if (height = -1):
+			
+
 	#Making the function to increment the values around the bomb
 	#dont duplicate code
 	#heeheeeeeeeereeee
@@ -28,19 +32,19 @@ def inputDimension(measurement):
 
 	return int(returnMeasurement)
 
-def initialize_Array(w, h):
-	arr = [[0 for x in range(w)] for y in range(h)]
-	return arr
+def initialize_Array(width, height):
+	array = [[0 for x in range(width)] for y in range(height)]
+	return array
 
-def add_bombs(bombs, arr, h, w):
+def add_bombs(bombs, array, height, width):
 	while(bombs > 0):
 		random.seed(bombs)
-		a = random.randrange(h - 1)
-		b = random.randrange(w - 1)
-		if ((arr[a][b] != -1) ):
-			arr[a][b] = -1
+		a = random.randrange(height - 1)
+		b = random.randrange(width - 1)
+		if ((array[a][b] != -1) ):
+			array[a][b] = -1
 			bombs -=1
-	return arr
+	return array
 		
 	
 def print_board(arr, height, width):
