@@ -2,8 +2,10 @@
 
 import random
 def numbers(array, height):
+	lis = {}
 	for height in array:
-		if (height = -1):
+		lis
+
 			
 
 	#Making the function to increment the values around the bomb
