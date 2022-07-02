@@ -1,10 +1,43 @@
 #Test File
 
 import random
-def numbers(array, height):
-	lis = {}
-	for height in array:
-		lis
+
+
+def numbers(array, width, height):
+	
+	for i in range(width):
+		left = i - 1
+		right = i + 1
+		for j in range(height):
+			top = j + 1
+			bottom = j - 1
+			if array[i][j] == -1 and left >=0 and right <= (width - 1):
+				if array[left][j] != -1:
+					array[left][j] +=1
+				if array[right][j] != -1:
+					array[right][j] +=1
+
+				if top >=0 and bottom <= (height - 1):
+					if array[i][top] != -1:	
+						array[i][top] +=1
+					if array[i][bottom] != -1:
+						array[i][bottom] +=1
+
+					if array[left][top] != -1:
+						array[left][top] +=1
+					if array[right][bottom] != -1:
+						array[right][bottom] +=1
+					if array[right][top] != -1:
+						array[right][top] +=1
+					if array[left][bottom] != -1:
+						array[left][bottom] +=1
+
+	
+	return array
+			
+
+
+
 
 			
 
@@ -23,6 +56,8 @@ def main():
 	bomb_amount = (width * height) / 8
 
 	grid = add_bombs(bomb_amount, grid, height, width)
+
+	grid = numbers(grid, width, height)
 
 	print_board(grid, height, width)
 
