@@ -45,31 +45,66 @@ import random
 
 #The helper functions are so we reduce the chances of mistakinly writing wrong code and improve readability
 def incrementTopLeft(array, row, col):
-	array[row - 1][col - 1] += 1
+	if array[row - 1][col - 1] != -1:
+		array[row - 1][col - 1] += 1
 	return array
 def incrementTopMid(array, row, col):
-	array[row - 1][col] += 1
+	if(array[row - 1][col] != -1):
+		array[row - 1][col] += 1
 	return array
 def incrementTopRight(array, row, col):
-	array[row - 1][col + 1] += 1
+	if (array[row - 1][col + 1] != -1):
+		array[row - 1][col + 1] += 1
 	return array
 def incrementMidLeft(array, row, col):
-	array[row][col - 1] += 1
+	if(col - 1 >= 0 and array[row][col - 1] != -1):
+		array[row][col - 1] += 1
 	return array
 def incrementMidRight(array, row, col):
-	array[row][col + 1] += 1
+	if(col + 1 <= col - 1 and array[row][col + 1] != -1):
+		array[row][col + 1] += 1
 	return array
 def incrementBotLeft(array, row, col):
-	array[row + 1][col - 1] += 1
+	if(col - 1 > 0 and array[row + 1][col - 1] != -1):
+		array[row + 1][col - 1] += 1
 	return array
 def incrementBotMid(array, row, col):
-	array[row + 1][col] += 1
+	if(array[row + 1][col] != -1):
+		array[row + 1][col] += 1
 	return array
 def incrementBotRight(array, row, col):
-	array[row + 1][col + 1] += 1
+	if(col + 1 <= col - 1 and array[row + 1][col + 1] != -1):
+		array[row + 1][col + 1] += 1
 	return array
 #If you noticed, the code has redundancy, we can make the if statements even more efficient by changing the order
 	# for example, some if statements will increment a box either way, im lazy so we can do it later
+
+# Trying to shorten it, adding conditionals to helper functions
+	"""
+
+def incrementSurrounding(array, rows, cols, bomb_Locations, bomb_amount):
+	for i in range(bomb_amount):
+		row = bomb_Locations[i][0]
+		col = bomb_Locations[i][1]
+		array = incrementTopLeft(array, row ,col)
+
+		array = incrementTopRight(array, row, col)
+
+		array = incrementTopMid(array, row, col)
+
+		array = incrementBotLeft(array, row, col)
+
+		array = incrementBotRight(array, row, col)
+	
+		array = incrementBotMid(array, row, col)
+		
+		array = incrementMidLeft(array, row, col)
+
+		array = incrementMidRight(array, row, col)
+	print("Hello")
+	return array
+	"""
+
 def incrementSurrounding(array, rows, cols, bomb_Locations, bomb_amount):
 	for i in range(bomb_amount):
 		row = bomb_Locations[i][0]
@@ -104,10 +139,12 @@ def incrementSurrounding(array, rows, cols, bomb_Locations, bomb_amount):
 		if(col - 1 >= 0 and array[row][col - 1] != -1):
 			array = incrementMidLeft(array, row, col)
 
-		if(col + 1 <= cols - 1 and array[row][col + 1] != -1):
+		if(col + 1 <= col - 1 and array[row][col + 1] != -1):
 			array = incrementMidRight(array, row, col)
 
 	return array
+
+
 
 			
 

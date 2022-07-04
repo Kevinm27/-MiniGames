@@ -2,7 +2,53 @@
 
 import random
 import sys
+def incrementTopLeft(array, row, col):
+	array[row - 1][col - 1] += 1
+	return array
+def incrementTopMid(array, row, col):
+	array[row - 1][col] += 1
+	return array
+def incrementTopRight(array, row, col):
+	array[row - 1][col + 1] += 1
+	return array
+def incrementMidLeft(array, row, col):
+	array[row][col - 1] += 1
+	return array
+def incrementMidRight(array, row, col):
+	array[row][col + 1] += 1
+	return array
+def incrementBotLeft(array, row, col):
+	array[row + 1][col - 1] += 1
+	return array
+def incrementBotMid(array, row, col):
+	array[row + 1][col] += 1
+	return array
+def incrementBotRight(array, row, col):
+	array[row + 1][col + 1] += 1
+	return array
+def incrementSurrounding(array, rows, cols, bomb_Locations, bomb_amount):
+	for i in range(bomb_amount):
+		row = bomb_Locations[i][0]
+		col = bomb_Locations[i][1]
+		array = incrementTopLeft(array, row ,col)
 
+		array = incrementTopRight(array, row, col)
+
+		array = incrementTopMid(array, row, col)
+
+		array = incrementBotLeft(array, row, col)
+
+		array = incrementBotRight(array, row, col)
+	
+		array = incrementBotMid(array, row, col)
+
+		#Now we check the left and right
+		array = incrementMidLeft(array, row, col)
+
+		array = incrementMidRight(array, row, col)
+
+	return array
+"""
 def numbers(array, width, height):
 	rows  = height
 	col = width
@@ -29,6 +75,8 @@ def numbers(array, width, height):
 
 	
 	return array
+
+"""
 			
 #Instead of the numbers function above, we could probably make it a lil better
 #Im thinking of storing the random bombs into an array with their coordinates
