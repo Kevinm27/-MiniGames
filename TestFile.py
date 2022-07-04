@@ -1,35 +1,30 @@
 #Test File
 
 import random
+import sys
 
 def numbers(array, width, height):
-	
-	for i in range(width):
-		left = i - 1
-		right = i + 1
-		for j in range(height):
-			top = j + 1
-			bottom = j - 1
-			if array[i][j] == -1 and left >=0 and right <= (width - 1):
-				if array[left][j] != -1:
-					array[left][j] +=1
-				if array[right][j] != -1:
-					array[right][j] +=1
+	rows  = height
+	col = width
+		# for loop looks into the value of the array
+		# we might be able to transform it into a dictionary instead 
+		#I think they're the same speed
+		
+	for i, rows in enumerate(array):
+		
+		for j, value in enumerate(rows):
+			# Need to check what the error is to throw an exception
+			if (value == -1):
+				array[i + 1][j + 1] = array[i + 1][j + 1] + 1
+				array[i + 1][j] = array[i + 1][j] + 1
+				array[i][j + 1] = array[i][j + 1] + 1
 
-				if top >=0 and bottom <= (height - 1):
-					if array[i][top] != -1:	
-						array[i][top] +=1
-					if array[i][bottom] != -1:
-						array[i][bottom] +=1
+				array[i - 1][j - 1] = array[i - 1][j - 1] + 1
+				array[i ][j - 1] = array[i ][j - 1] + 1
+				array[i - 1][j ] = array[i - 1][j ] + 1
 
-					if array[left][top] != -1:
-						array[left][top] +=1
-					if array[right][bottom] != -1:
-						array[right][bottom] +=1
-					if array[right][top] != -1:
-						array[right][top] +=1
-					if array[left][bottom] != -1:
-						array[left][bottom] +=1
+				array[i - 1][j + 1] = array[i - 1][j + 1] + 1
+				array[i + 1][j - 1] = array[i + 1][j - 1] + 1
 
 	
 	return array
