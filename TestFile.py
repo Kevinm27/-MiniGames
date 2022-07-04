@@ -9,7 +9,8 @@ def numbers(array, width, height):
 		# for loop looks into the value of the array
 		# we might be able to transform it into a dictionary instead 
 		#I think they're the same speed
-		
+		# throw continue expcetion
+
 	for i, rows in enumerate(array):
 		
 		for j, value in enumerate(rows):
